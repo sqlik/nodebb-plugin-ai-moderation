@@ -1,0 +1,23 @@
+README.md
+  5dfe91e1a48d718a 21-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "abf7adbbbc1b93295754cb9cd369010bbb9e1c25",
+  "prompts": {
+    "5dfe91e1a48d718a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "15087f47-3947-42d1-b197-4911850e664c",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "sqlik",
+      "messages": [],
+      "total_additions": 2930,
+      "total_deletions": 0,
+      "accepted_lines": 2930,
+      "overriden_lines": 0
+    }
+  }
+}
