@@ -35,15 +35,15 @@ npm install nodebb-plugin-ai-moderation
 
 ### 1. Set the OpenRouter API key
 
-Set it via **environment variable** or **config.json** — never in the database.
+The plugin looks for the key in three places, in order. **First non-empty source wins** — nothing is stored in the database.
 
-**Environment variable (recommended):**
+**Option A — Environment variable (recommended when you control the process):**
 
 ```bash
 OPENROUTER_API_KEY=sk-or-v1-...
 ```
 
-**Or in `config.json`:**
+**Option B — NodeBB `config.json`:**
 
 ```json
 {
@@ -52,6 +52,17 @@ OPENROUTER_API_KEY=sk-or-v1-...
   }
 }
 ```
+
+**Option C — Plain text file (useful on managed hosts like Cloudron where you cannot set env vars or edit config.json):**
+
+Create a file with the key as its only contents (no quotes, no trailing newline matters):
+
+```bash
+echo -n "sk-or-v1-..." > /app/data/openrouter_api_key
+chmod 600 /app/data/openrouter_api_key
+```
+
+Then in ACP → AI Moderation → Models → "API key file path", enter the absolute path (e.g. `/app/data/openrouter_api_key`) and save.
 
 ### 2. Configure via ACP
 

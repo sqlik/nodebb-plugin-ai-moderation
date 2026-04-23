@@ -32,8 +32,15 @@
 	"field.reanalyzeEdits": "Re-analyze edited posts",
 	"field.reanalyzeEdits.help": "Each edit consumes additional budget. Keep off unless needed — edits are a common way to bypass moderation.",
 
-	"apikey.detected": "API key detected (source: %1). To rotate, update the environment variable or config.json and save.",
-	"apikey.missing": "No API key found. Set it via environment variable or config.json — never in the database:",
+	"apikey.detected": "API key detected (source: %1). To rotate, update the chosen source and click Save (or Restart NodeBB).",
+	"apikey.missing": "No API key found. Set it via one of the three sources below (first non-empty wins):",
+	"apikey.sources": "Lookup order:",
+	"apikey.source.env": "— environment variable (recommended when available)",
+	"apikey.source.config": "— under this key in NodeBB's config.json",
+	"apikey.source.file": "plain text file at the path specified below (useful on managed hosts like Cloudron where you cannot set env vars or edit config.json)",
+
+	"field.apiKeyFile": "API key file path (optional)",
+	"field.apiKeyFile.help": "Absolute path to a file whose contents are the API key. Example: /app/data/openrouter_api_key (Cloudron). Only used when env var and config.json are both empty.",
 
 	"models.notice": "Enter any model ID from OpenRouter's catalog. See README for recommendations.",
 	"models.ping": "Ping",

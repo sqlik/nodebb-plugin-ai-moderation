@@ -32,8 +32,15 @@
 	"field.reanalyzeEdits": "Ponownie analizuj edytowane posty",
 	"field.reanalyzeEdits.help": "Każda edycja zużywa dodatkowy budżet. Zostaw wyłączone, chyba że potrzebne — edycje to częsty sposób na obejście moderacji.",
 
-	"apikey.detected": "Klucz API wykryty (źródło: %1). Aby go zmienić, zaktualizuj zmienną środowiskową lub config.json i zapisz.",
-	"apikey.missing": "Nie znaleziono klucza API. Ustaw go poprzez zmienną środowiskową lub config.json — nigdy w bazie danych:",
+	"apikey.detected": "Klucz API wykryty (źródło: %1). Aby go zmienić, zaktualizuj wybrane źródło i kliknij Zapisz (lub zrestartuj NodeBB).",
+	"apikey.missing": "Nie znaleziono klucza API. Ustaw go przez jedno z trzech źródeł poniżej (wygrywa pierwsze niepuste):",
+	"apikey.sources": "Kolejność szukania:",
+	"apikey.source.env": "— zmienna środowiskowa (zalecane tam gdzie dostępne)",
+	"apikey.source.config": "— pod tym kluczem w config.json NodeBB",
+	"apikey.source.file": "plik tekstowy pod ścieżką podaną poniżej (przydatne na hostingach zarządzanych jak Cloudron gdzie nie masz env varów i nie edytujesz config.json)",
+
+	"field.apiKeyFile": "Ścieżka do pliku z kluczem API (opcjonalnie)",
+	"field.apiKeyFile.help": "Absolutna ścieżka do pliku którego zawartość to klucz API. Przykład: /app/data/openrouter_api_key (Cloudron). Używane tylko gdy env var i config.json są puste.",
 
 	"models.notice": "Wpisz dowolny identyfikator modelu z katalogu OpenRouter. Rekomendacje w README.",
 	"models.ping": "Ping",

@@ -50,10 +50,23 @@
 							<div class="card-header">[[ai-moderation:section.apikey]]</div>
 							<div class="card-body">
 								{{{ if apiKeyConfigured }}}
-								<div class="alert alert-success mb-0">[[ai-moderation:apikey.detected, {apiKeySource}]]</div>
+								<div class="alert alert-success mb-2">[[ai-moderation:apikey.detected, {apiKeySource}]]</div>
 								{{{ else }}}
-								<div class="alert alert-warning mb-0">[[ai-moderation:apikey.missing]]<pre class="mb-0 mt-2">OPENROUTER_API_KEY=sk-or-v1-...</pre></div>
+								<div class="alert alert-warning mb-2">[[ai-moderation:apikey.missing]]</div>
 								{{{ end }}}
+
+								<p class="small text-muted mb-2">[[ai-moderation:apikey.sources]]</p>
+								<ol class="small text-muted mb-3">
+									<li><code>OPENROUTER_API_KEY</code> [[ai-moderation:apikey.source.env]]</li>
+									<li><code>ai-moderation.openrouter_api_key</code> [[ai-moderation:apikey.source.config]]</li>
+									<li>[[ai-moderation:apikey.source.file]]</li>
+								</ol>
+
+								<div class="mb-0">
+									<label class="form-label" for="apiKeyFile">[[ai-moderation:field.apiKeyFile]]</label>
+									<input type="text" class="form-control" id="apiKeyFile" name="apiKeyFile" placeholder="/app/data/openrouter_api_key" />
+									<small class="form-text text-muted">[[ai-moderation:field.apiKeyFile.help]]</small>
+								</div>
 							</div>
 						</div>
 
