@@ -1,0 +1,10 @@
+CLAUDE.md
+**/CLAUDE.md
+.git/
+screenshots/
+*.log
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/

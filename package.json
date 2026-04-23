@@ -1,0 +1,48 @@
+{
+  "name": "nodebb-plugin-ai-moderation",
+  "version": "0.1.0",
+  "description": "Automatic forum moderation powered by OpenRouter. Two-tier model pipeline with configurable thresholds, per-category actions, budget caps, and NodeBB flag integration.",
+  "main": "library.js",
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sqlik/nodebb-plugin-ai-moderation.git"
+  },
+  "keywords": [
+    "nodebb",
+    "nodebb-plugin",
+    "ai",
+    "moderation",
+    "openrouter",
+    "anti-spam",
+    "llm"
+  ],
+  "author": "djayt <tomasz.sawko@sqlik.com> (https://www.npmjs.com/~djayt)",
+  "license": "MIT",
+  "homepage": "https://github.com/sqlik/nodebb-plugin-ai-moderation#readme",
+  "bugs": {
+    "url": "https://github.com/sqlik/nodebb-plugin-ai-moderation/issues"
+  },
+  "files": [
+    "lib/",
+    "public/lib/",
+    "public/templates/",
+    "languages/",
+    "library.js",
+    "plugin.json",
+    "LICENSE",
+    "README.md",
+    "!**/CLAUDE.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "openai": "^4.70.0"
+  },
+  "nbbpm": {
+    "compatibility": "^3.0.0 || ^4.0.0"
+  }
+}
