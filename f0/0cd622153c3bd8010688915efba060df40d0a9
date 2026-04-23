@@ -1,0 +1,29 @@
+languages/en-GB/ai-moderation.json
+  5dfe91e1a48d718a 70-72
+languages/pl/ai-moderation.json
+  5dfe91e1a48d718a 70-72
+README.md
+  5dfe91e1a48d718a 157-277
+public/templates/admin/plugins/ai-moderation.tpl
+  5dfe91e1a48d718a 141,143-190
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "f00cd622153c3bd8010688915efba060df40d0a9",
+  "prompts": {
+    "5dfe91e1a48d718a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "15087f47-3947-42d1-b197-4911850e664c",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "sqlik",
+      "messages": [],
+      "total_additions": 176,
+      "total_deletions": 1,
+      "accepted_lines": 176,
+      "overriden_lines": 0
+    }
+  }
+}
