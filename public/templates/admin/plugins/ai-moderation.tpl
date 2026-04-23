@@ -105,21 +105,21 @@
 								<div class="row">
 									<div class="col-md-6 mb-3">
 										<label class="form-label" for="blockThreshold">[[ai-moderation:field.blockThreshold]]</label>
-										<input type="number" step="0.05" min="0" max="1" class="form-control" id="blockThreshold" name="blockThreshold" />
+										<input type="number" step="0.01" min="0" max="1" class="form-control" id="blockThreshold" name="blockThreshold" />
 										<small class="form-text text-muted">[[ai-moderation:field.blockThreshold.help]]</small>
 									</div>
 									<div class="col-md-6 mb-3">
 										<label class="form-label" for="flagThreshold">[[ai-moderation:field.flagThreshold]]</label>
-										<input type="number" step="0.05" min="0" max="1" class="form-control" id="flagThreshold" name="flagThreshold" />
+										<input type="number" step="0.01" min="0" max="1" class="form-control" id="flagThreshold" name="flagThreshold" />
 										<small class="form-text text-muted">[[ai-moderation:field.flagThreshold.help]]</small>
 									</div>
 									<div class="col-md-6 mb-3">
 										<label class="form-label" for="escalationLow">[[ai-moderation:field.escalationLow]]</label>
-										<input type="number" step="0.05" min="0" max="1" class="form-control" id="escalationLow" name="escalationLow" />
+										<input type="number" step="0.01" min="0" max="1" class="form-control" id="escalationLow" name="escalationLow" />
 									</div>
 									<div class="col-md-6 mb-3">
 										<label class="form-label" for="escalationHigh">[[ai-moderation:field.escalationHigh]]</label>
-										<input type="number" step="0.05" min="0" max="1" class="form-control" id="escalationHigh" name="escalationHigh" />
+										<input type="number" step="0.01" min="0" max="1" class="form-control" id="escalationHigh" name="escalationHigh" />
 									</div>
 								</div>
 								<small class="form-text text-muted">[[ai-moderation:thresholds.help]]</small>
