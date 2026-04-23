@@ -172,7 +172,7 @@ function renderAuditRow(r) {
 }
 
 function renderAuditTable(rows) {
-	if (!rows.length) return '<div class="text-muted small">[[ai-moderation:audit.empty]]</div>';
+	if (!rows.length) return '<div class="text-muted small">No decisions yet.</div>';
 	return `
 		<div class="table-responsive">
 			<table class="table table-sm">
