@@ -80,6 +80,80 @@ All other settings live in `/admin/plugins/ai-moderation`. The page is organised
 
 Leave **Dry-run mode** enabled until you have calibrated thresholds and reviewed Playground output for typical forum content. In dry-run, the plugin logs what it *would* do without actually blocking or flagging.
 
+## Default configuration
+
+On a fresh install the plugin ships with these defaults. They are tuned for a conservative **"flag first, enforce later"** workflow — nothing is hidden or deleted automatically. Everything problematic lands in NodeBB's flag queue for a human to review.
+
+### Global state
+
+| Setting | Default | Why |
+|---|---|---|
+| Enable plugin | `false` | Stays dormant after install; you activate when ready |
+| Dry-run mode | `true` | Logs decisions without enforcing — run like this for 1–2 weeks to calibrate |
+| Re-analyze edited posts | `false` | Each edit costs a second API call; opt in only if you see edit-bypass attempts |
+
+### Models
+
+| Setting | Default | Why |
+|---|---|---|
+| Triage model | `google/gemini-2.5-flash-lite` | ~$0.08 / $0.30 per 1M tokens, fast, strong multilingual support |
+| Escalation model | `anthropic/claude-haiku-4-5` | Stronger reasoning for borderline cases, still cheap |
+
+### Thresholds — the decision curve
+
+The confidence score returned by the model (0.0 clean → 1.0 definitely violates) flows through this ladder:
+
+```
+  0.00 ────────── 0.55 ─────────── 0.88 ─ 0.92 ────── 1.00
+   │    pass       │    escalate    │ flag │  block    │
+                   │  (queue for    │direct│ (reject  │
+                   │   deep review  │(no   │  or hide/
+                   │   by stronger  │deep  │  delete
+                   │   model)       │review)│ per
+                                            │ category)
+```
+
+| Setting | Default | Why |
+|---|---|---|
+| `blockThreshold` | `0.92` | Very high bar — block only when the model is nearly certain. A false block is much worse than a false flag |
+| `escalationHigh` | `0.88` | Upper bound of the grey zone; above this, confidence is high enough to flag without a second opinion |
+| `escalationLow` | `0.55` | Lower bound of the grey zone; below this, don't waste an escalation call |
+| `flagThreshold` | `0.55` | Matches `escalationLow`; catches anything that escapes escalation (the narrow 0.88–0.92 band) |
+
+### Category actions
+
+Every category maps to `flag` by default — the plugin files to NodeBB's built-in flag queue; a human moderator makes the final call.
+
+```json
+{"spam":"flag","toxicity":"flag","nsfw":"flag","pii":"flag","promotion":"flag"}
+```
+
+Once you trust the model, progressively promote actions — typically `spam → hide` first, then `nsfw → hide`. Keep `pii` and `toxicity` on `flag` — those benefit from human judgment.
+
+### Exemptions
+
+| Setting | Default | Why |
+|---|---|---|
+| Exempt roles | `administrators, Global Moderators` | Minimal safe set |
+| Reputation exemption | `0` (off) | Enable once your forum has tenured users — typical value 100–500 |
+
+### Budget
+
+| Setting | Default | Why |
+|---|---|---|
+| Daily cap | `$5` | ~60k triage analyses/day on the default model. Raise if you hit it |
+| Monthly cap | `$100` | Hard ceiling |
+| Per-user daily analyses | `20` | Stops a runaway spammer from draining the budget |
+| Fallback on cap exhaustion | `queue` | Defer the analysis rather than pass content through unmoderated (fail-safe, not fail-open) |
+| Audit retention | `90 days` | Enough for trend analysis without bloating the DB |
+
+### Recommended rollout
+
+1. **Day 0** — install + activate + set API key. Open the Playground, paste 10–15 real posts from your forum (mix of clean + borderline), confirm verdicts make sense. If > 1–2 false positives per 10, refine **Custom rules** first.
+2. **Days 1 → 14** — keep **Dry-run** ON. Browse the Audit log daily; treat mis-classifications as calibration signal for either thresholds or custom rules.
+3. **Weeks 2 → 4** — turn Dry-run OFF. All actions still `flag`. Let moderators process the flag queue for a few hundred posts.
+4. **Month 2+** — upgrade per-category action (`spam → hide`, `nsfw → hide`) once false-positive rate is acceptable. Consider raising `reputationExemptThreshold` so long-standing users bypass moderation.
+
 ## Recommended models
 
 | Scenario | Triage | Escalation | Notes |
