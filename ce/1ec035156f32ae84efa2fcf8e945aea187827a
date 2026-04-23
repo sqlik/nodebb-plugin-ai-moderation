@@ -1,0 +1,69 @@
+public/lib/admin.js
+  5dfe91e1a48d718a 1-235
+.npmignore
+  5dfe91e1a48d718a 1-10
+lib/enforce.js
+  5dfe91e1a48d718a 1-105
+public/templates/admin/plugins/ai-moderation.tpl
+  5dfe91e1a48d718a 1-313
+lib/audit.js
+  5dfe91e1a48d718a 1-138
+lib/queue.js
+  5dfe91e1a48d718a 1-141
+lib/admin.js
+  5dfe91e1a48d718a 1-44
+lib/categorize.js
+  5dfe91e1a48d718a 1-158
+library.js
+  5dfe91e1a48d718a 1-144
+LICENSE
+  5dfe91e1a48d718a 1-21
+lib/exempt.js
+  5dfe91e1a48d718a 1-37
+package.json
+  5dfe91e1a48d718a 1-48
+lib/hooks.js
+  5dfe91e1a48d718a 1-98
+lib/moderate.js
+  5dfe91e1a48d718a 1-79
+lib/budget.js
+  5dfe91e1a48d718a 1-96
+lib/openrouter.js
+  5dfe91e1a48d718a 1-80
+lib/settings.js
+  5dfe91e1a48d718a 1-169
+languages/en-GB/ai-moderation.json
+  5dfe91e1a48d718a 1-115
+.gitignore
+  5dfe91e1a48d718a 1-11
+plugin.json
+  5dfe91e1a48d718a 1-20
+languages/pl/ai-moderation.json
+  5dfe91e1a48d718a 1-115
+README.md
+  5dfe91e1a48d718a 1-185
+lib/prompt.js
+  5dfe91e1a48d718a 1-61
+lib/deep.js
+  5dfe91e1a48d718a 1-148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "ce1ec035156f32ae84efa2fcf8e945aea187827a",
+  "prompts": {
+    "5dfe91e1a48d718a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "15087f47-3947-42d1-b197-4911850e664c",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "sqlik",
+      "messages": [],
+      "total_additions": 2571,
+      "total_deletions": 0,
+      "accepted_lines": 2571,
+      "overriden_lines": 0
+    }
+  }
+}
