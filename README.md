@@ -382,6 +382,14 @@ Check **Stats** tab. If you hit the daily/monthly cap, either raise the cap or s
 - Model A/B testing in Playground
 - Fine-tuning job from moderator corrections
 
+## Support
+
+This plugin is free, MIT-licensed, and maintained in spare time. No ads, no trackers, no "pro tier" paywall. If it solved a real problem for your forum — replaced a paid moderation service, saved your mods hours per week, or stopped a spam wave that was about to drown the place — a coffee is a nice way to say thanks.
+
+[☕ Buy me a coffee](https://buymeacoffee.com/djayt)
+
+Not required, ever. Issues and PRs are always welcome regardless.
+
 ## Contributing
 
 Issues and PRs welcome at https://github.com/sqlik/nodebb-plugin-ai-moderation
