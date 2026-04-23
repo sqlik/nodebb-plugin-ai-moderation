@@ -1,0 +1,35 @@
+lib/admin.js
+  5dfe91e1a48d718a 15-16
+languages/en-GB/ai-moderation.json
+  5dfe91e1a48d718a 35-43
+README.md
+  5dfe91e1a48d718a 38,40,46,56-65
+languages/pl/ai-moderation.json
+  5dfe91e1a48d718a 35-43
+lib/settings.js
+  5dfe91e1a48d718a 9-10
+public/templates/admin/plugins/ai-moderation.tpl
+  5dfe91e1a48d718a 53,55,57-69
+lib/openrouter.js
+  5dfe91e1a48d718a 3,7-8,30-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "0ccddf7d41c49550592b7b95d3ccdcd07fe4455c",
+  "prompts": {
+    "5dfe91e1a48d718a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "15087f47-3947-42d1-b197-4911850e664c",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "sqlik",
+      "messages": [],
+      "total_additions": 65,
+      "total_deletions": 11,
+      "accepted_lines": 63,
+      "overriden_lines": 0
+    }
+  }
+}
