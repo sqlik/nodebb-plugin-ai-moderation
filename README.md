@@ -1,5 +1,8 @@
 # nodebb-plugin-ai-moderation
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-sqlik-FFDD00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/sqlik)
+
 Automatic forum moderation for NodeBB, powered by [OpenRouter](https://openrouter.ai/). Uses a two-tier model pipeline (fast triage + smart escalation) with fully configurable thresholds, per-category actions, budget caps, and seamless integration with NodeBB's built-in flag queue.
 
 ## Features
@@ -386,7 +389,7 @@ Check **Stats** tab. If you hit the daily/monthly cap, either raise the cap or s
 
 This plugin is free, MIT-licensed, and maintained in spare time. No ads, no trackers, no "pro tier" paywall. If it solved a real problem for your forum — replaced a paid moderation service, saved your mods hours per week, or stopped a spam wave that was about to drown the place — a coffee is a nice way to say thanks.
 
-[☕ Buy me a coffee](https://buymeacoffee.com/djayt)
+[☕ Buy me a coffee](https://buymeacoffee.com/sqlik)
 
 Not required, ever. Issues and PRs are always welcome regardless.
 
