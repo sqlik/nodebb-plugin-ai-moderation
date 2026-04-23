@@ -1,0 +1,25 @@
+.github/FUNDING.yml
+  5dfe91e1a48d718a 1
+README.md
+  5dfe91e1a48d718a 3-5,392
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "0d5de9a25b3dcb3721e1d70f4dd8f669ad0dabab",
+  "prompts": {
+    "5dfe91e1a48d718a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "15087f47-3947-42d1-b197-4911850e664c",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "sqlik",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 2,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
