@@ -67,6 +67,9 @@
 	"field.categories.help": "Rozdzielone przecinkami. Domyślnie: spam, toxicity, nsfw, pii, promotion.",
 	"field.customRules": "Reguły specyficzne dla forum (tekst)",
 	"field.customRules.help": "Dodaj kontekst dla modelu — tematyka forum, co jest off-topic, oczekiwania językowe itp.",
+	"customRules.examples": "▸ Pokaż 3 przykładowe prompty + meta-prompt do wygenerowania własnego",
+	"customRules.metaPromptLabel": "Meta-prompt — wklej do Claude / ChatGPT / Gemini, żeby napisał reguły za Ciebie",
+	"customRules.metaPromptHint": "Wypełnij nawias [DESCRIBE YOUR FORUM] zdaniem lub dwoma o swojej społeczności, przepuść przez dowolne AI, a output wklej do pola powyżej.",
 
 	"categoryActions.notice": "Przypisz do każdej kategorii akcję po przekroczeniu progu flag lub block. Dozwolone akcje: flag, hide, delete.",
 	"field.categoryActions": "Mapowanie kategoria → akcja (JSON)",

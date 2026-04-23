@@ -67,6 +67,9 @@
 	"field.categories.help": "Comma-separated. Default: spam, toxicity, nsfw, pii, promotion.",
 	"field.customRules": "Forum-specific rules (free text)",
 	"field.customRules.help": "Add context the model needs — forum topic, what counts as off-topic, language expectations, etc.",
+	"customRules.examples": "▸ Show 3 example prompts + a meta-prompt for generating your own",
+	"customRules.metaPromptLabel": "Meta-prompt — paste into Claude / ChatGPT / Gemini to have it write your rules",
+	"customRules.metaPromptHint": "Fill in the [DESCRIBE YOUR FORUM] bracket with a sentence or two about your community, run it through any capable chat AI, then paste the AI's output into the textarea above.",
 
 	"categoryActions.notice": "Map each category to an action when it exceeds the flag or block threshold. Valid actions: flag, hide, delete.",
 	"field.categoryActions": "Category → action mapping (JSON)",

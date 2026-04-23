@@ -138,8 +138,56 @@
 								</div>
 								<div class="mb-3">
 									<label class="form-label" for="customRules">[[ai-moderation:field.customRules]]</label>
-									<textarea class="form-control" id="customRules" name="customRules" rows="4" placeholder="e.g. This forum is about Mobile Device Management..."></textarea>
+									<textarea class="form-control" id="customRules" name="customRules" rows="6" placeholder="e.g. This forum is about Mobile Device Management..."></textarea>
 									<small class="form-text text-muted">[[ai-moderation:field.customRules.help]]</small>
+
+									<details class="mt-3 small">
+										<summary class="text-primary" style="cursor:pointer">[[ai-moderation:customRules.examples]]</summary>
+										<div class="mt-2">
+											<p class="mb-1"><strong>Example 1 — Professional / business niche (MDM admin forum)</strong></p>
+											<pre class="bg-light p-2 small mb-3" style="white-space:pre-wrap">This is a professional forum for Mobile Device Management (MDM) administrators. Relevant topics: MDM platforms (Intune, Jamf, Workspace ONE, Kandji, etc.), device enrollment, security policies, compliance, BYOD, Apple/Android/Windows device management, MAM, troubleshooting, vendor comparisons. These are ALL welcome and must NOT be flagged as spam or promotion, even when they mention specific products or vendors.
+
+Flag as off-topic: unrelated politics, personal relationship talk, cryptocurrency pitches, content clearly unrelated to IT device management.
+
+Flag as promotion ONLY: unsolicited recruiter/vendor pitches from users with no history of participation, affiliate links, naked product ads without technical substance.
+
+Polish and English are both first-class languages on this forum — do not penalize either. Be tolerant of minor language errors from non-native speakers.</pre>
+
+											<p class="mb-1"><strong>Example 2 — Gaming community (entertainment / fan forum)</strong></p>
+											<pre class="bg-light p-2 small mb-3" style="white-space:pre-wrap">This is a community forum for players of [GAME_NAME]. Relevant: gameplay discussion, strategy guides, patch notes, bug reports, LFG (looking for group), fan art, streaming/content creation about the game, speedruns, mods and modding, lore theories, trading (in-game items only), criticism of game design decisions — all welcome.
+
+Gaming culture tolerance: competitive trash-talk and playful rivalry between factions/classes/teams are normal and should NOT be flagged as toxicity unless they include personal attacks, slurs, doxxing, or threats. Mild profanity and NSFW language in casual discussion is NOT grounds for flagging unless it targets specific users or groups.
+
+Flag as off-topic: discussions of other unrelated games (unless in the designated off-topic category), real-world politics.
+
+Flag as spam/promotion: selling/buying game accounts for real money, real-money trading (RMT), cheat/hack sales, gold-seller posts, Twitch-drops spam from accounts with no participation history.</pre>
+
+											<p class="mb-1"><strong>Example 3 — Photography enthusiasts (creative / hobby forum)</strong></p>
+											<pre class="bg-light p-2 small mb-3" style="white-space:pre-wrap">This is a forum for photography enthusiasts and working professionals. Relevant: camera/lens gear discussion, technique (composition, lighting, post-processing), critique of shared photos, workflow and software (Lightroom, Capture One, RAW tools), printing, travel photography, commercial practice, rates, legal/rights questions.
+
+Gear mentions, brand comparisons (Sony vs Canon vs Fuji), and affiliate-looking links to camera retailers are EXPECTED in a photography forum. Do NOT flag as promotion unless the poster has zero engagement history and only posts deals/links.
+
+Critique can be direct and blunt — this is a skill-building community. Honest technical feedback on framing, exposure, or processing is NOT toxicity.
+
+NSFW policy: tasteful nude and artistic body studies are allowed when clearly labeled. Flag explicitly pornographic or exploitative content. Any image involving minors in states of undress must always be flagged regardless of context.</pre>
+
+											<p class="mb-1"><strong>[[ai-moderation:customRules.metaPromptLabel]]</strong></p>
+											<p class="text-muted small mb-1">[[ai-moderation:customRules.metaPromptHint]]</p>
+											<pre class="bg-light p-2 small mb-0" style="white-space:pre-wrap">I'm configuring an AI-based moderation plugin for my NodeBB forum. I need forum-specific rules that help the classifier avoid false positives (flagging normal content) and false negatives (missing problems specific to my community).
+
+My forum is: [DESCRIBE YOUR FORUM — topic, target users, tone, primary language, any known edge cases]
+
+Please write a "Custom rules" paragraph of 150–300 words that I can paste directly into the plugin's Rules tab. It must:
+
+1. Open with a single sentence describing the forum's topic so the AI knows what's on-topic
+2. List categories of content that are RELEVANT and must NOT be flagged — even if superficially they look like spam, promotion, toxicity, or NSFW
+3. List types of content that SHOULD be flagged, including the specific signal (e.g. "accounts with zero engagement history posting only links")
+4. Cover language tolerance if the forum is multilingual
+5. Cover tone norms (is profanity OK? is blunt critique part of the culture?)
+
+Write it as direct instructions to an automated classifier — no marketing copy, no hedging, no "please" or "kindly". Output only the rules paragraph itself, no preamble, no trailing notes.</pre>
+										</div>
+									</details>
 								</div>
 							</div>
 						</div>
