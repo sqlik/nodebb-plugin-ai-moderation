@@ -68,6 +68,81 @@ function renderPlaygroundResult(result) {
 		</div>`;
 }
 
+const modelsIndex = new Map();
+
+function fmtPrice(n) {
+	if (n == null || isNaN(n)) return '?';
+	if (n < 0.01) return '$' + n.toFixed(4);
+	return '$' + n.toFixed(2);
+}
+
+function fmtContext(n) {
+	if (!n) return '';
+	if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+	if (n >= 1000) return Math.round(n / 1000) + 'k';
+	return String(n);
+}
+
+function populateDatalist(models) {
+	modelsIndex.clear();
+	const dl = document.getElementById('ai-mod-models-list');
+	if (!dl) return;
+	while (dl.firstChild) dl.removeChild(dl.firstChild);
+	const frag = document.createDocumentFragment();
+	for (const m of models) {
+		modelsIndex.set(m.id, m);
+		const opt = document.createElement('option');
+		opt.value = m.id;
+		const ctx = fmtContext(m.context);
+		const price = `${fmtPrice(m.promptUsdPerMtok)} / ${fmtPrice(m.completionUsdPerMtok)} per 1M`;
+		opt.textContent = `${m.name} · ${ctx ? ctx + ' ctx · ' : ''}${price}`;
+		frag.appendChild(opt);
+	}
+	dl.appendChild(frag);
+}
+
+function updateModelMeta(which, modelId) {
+	const el = document.querySelector('.model-meta[data-for="' + which + '"]');
+	if (!el) return;
+	while (el.firstChild) el.removeChild(el.firstChild);
+	const m = modelsIndex.get(String(modelId || '').trim());
+	if (!m) return;
+	const ctx = fmtContext(m.context);
+	const price = `${fmtPrice(m.promptUsdPerMtok)} / ${fmtPrice(m.completionUsdPerMtok)} per 1M tokens`;
+	const dash = document.createTextNode('— ');
+	const name = document.createElement('strong');
+	name.textContent = m.name;
+	const tail = document.createTextNode(` · ${ctx ? ctx + ' ctx · ' : ''}${price}`);
+	el.appendChild(dash);
+	el.appendChild(name);
+	el.appendChild(tail);
+}
+
+function setStatusSafe(id, text, cls) {
+	const el = document.getElementById(id);
+	if (!el) return;
+	while (el.firstChild) el.removeChild(el.firstChild);
+	const span = document.createElement('span');
+	if (cls) span.className = cls;
+	span.textContent = text;
+	el.appendChild(span);
+}
+
+function loadModelsCatalog(force) {
+	setStatusSafe('models-status', 'Loading OpenRouter catalog…', 'text-muted');
+	socket.emit('plugins.ai-moderation.listModels', { force: !!force }, (err, res) => {
+		if (err) {
+			setStatusSafe('models-status', (err.message || err).toString(), 'text-danger');
+			return;
+		}
+		populateDatalist(res.models || []);
+		const suffix = res.cached ? ' (cached)' : '';
+		setStatusSafe('models-status', `Catalog loaded: ${res.count} models${suffix}`, 'text-success');
+		updateModelMeta('triage', $('#triageModel').val());
+		updateModelMeta('escalation', $('#escalationModel').val());
+	});
+}
+
 function renderPingResult(res) {
 	const usage = res.usage || {};
 	const tokens = (usage.prompt_tokens || 0) + (usage.completion_tokens || 0);
@@ -225,6 +300,14 @@ export function init() {
 			$('#pg-result').html(renderPlaygroundResult(result));
 		});
 	});
+
+	$('#models-refresh').on('click', () => loadModelsCatalog(true));
+	$('#triageModel').on('input change', function () { updateModelMeta('triage', $(this).val()); });
+	$('#escalationModel').on('input change', function () { updateModelMeta('escalation', $(this).val()); });
+	$('a[href="#tab-models"]').on('shown.bs.tab', () => {
+		if (!modelsIndex.size) loadModelsCatalog(false);
+	});
+	setTimeout(() => loadModelsCatalog(false), 250);
 
 	$('#audit-refresh').on('click', refreshAudit);
 	$('#audit-filter-action, #audit-filter-category, #audit-filter-uid').on('change', refreshAudit);

@@ -42,8 +42,13 @@
 	"field.apiKeyFile": "Ścieżka do pliku z kluczem API (opcjonalnie)",
 	"field.apiKeyFile.help": "Absolutna ścieżka do pliku którego zawartość to klucz API. Przykład: /app/data/openrouter_api_key (Cloudron). Używane tylko gdy env var i config.json są puste.",
 
-	"models.notice": "Wpisz dowolny identyfikator modelu z katalogu OpenRouter. Rekomendacje w README.",
+	"models.notice": "Zacznij pisać aby wybrać z <a href=\"https://openrouter.ai/models\" target=\"_blank\" rel=\"noopener\">katalogu OpenRouter</a>, lub wpisz dowolny identyfikator modelu ręcznie. Rekomendacje w <a href=\"https://github.com/sqlik/nodebb-plugin-ai-moderation#recommended-models\" target=\"_blank\" rel=\"noopener\">README</a>.",
 	"models.ping": "Ping",
+	"models.refresh": "Odśwież katalog",
+	"models.loaded": "Załadowano katalog: %1 modeli (cache)",
+	"models.loaded.fresh": "Załadowano katalog: %1 modeli",
+	"models.loading": "Ładuję katalog OpenRouter…",
+	"models.load_failed": "Nie udało się załadować katalogu: %1. Możesz wpisać identyfikator modelu ręcznie.",
 
 	"field.triageModel": "Model triage (synchroniczny, pre-check)",
 	"field.triageModel.help": "Szybki i tani. Uruchamia się przy każdym poście przed publikacją.",

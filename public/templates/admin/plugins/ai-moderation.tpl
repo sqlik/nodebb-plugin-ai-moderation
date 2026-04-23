@@ -71,26 +71,31 @@
 						</div>
 
 						<div class="card mb-3">
-							<div class="card-header">[[ai-moderation:section.models]]</div>
+							<div class="card-header d-flex justify-content-between align-items-center">
+								<span>[[ai-moderation:section.models]]</span>
+								<button type="button" id="models-refresh" class="btn btn-sm btn-outline-secondary">[[ai-moderation:models.refresh]]</button>
+							</div>
 							<div class="card-body">
 								<div class="alert alert-info">[[ai-moderation:models.notice]]</div>
+								<datalist id="ai-mod-models-list"></datalist>
 								<div class="mb-3">
 									<label class="form-label" for="triageModel">[[ai-moderation:field.triageModel]]</label>
 									<div class="input-group">
-										<input type="text" class="form-control" id="triageModel" name="triageModel" />
+										<input type="text" class="form-control" id="triageModel" name="triageModel" list="ai-mod-models-list" autocomplete="off" />
 										<button type="button" class="btn btn-outline-secondary" data-ping="triage">[[ai-moderation:models.ping]]</button>
 									</div>
-									<small class="form-text text-muted">[[ai-moderation:field.triageModel.help]]</small>
+									<small class="form-text text-muted">[[ai-moderation:field.triageModel.help]] <span class="model-meta" data-for="triage"></span></small>
 								</div>
 								<div class="mb-3">
 									<label class="form-label" for="escalationModel">[[ai-moderation:field.escalationModel]]</label>
 									<div class="input-group">
-										<input type="text" class="form-control" id="escalationModel" name="escalationModel" />
+										<input type="text" class="form-control" id="escalationModel" name="escalationModel" list="ai-mod-models-list" autocomplete="off" />
 										<button type="button" class="btn btn-outline-secondary" data-ping="escalation">[[ai-moderation:models.ping]]</button>
 									</div>
-									<small class="form-text text-muted">[[ai-moderation:field.escalationModel.help]]</small>
+									<small class="form-text text-muted">[[ai-moderation:field.escalationModel.help]] <span class="model-meta" data-for="escalation"></span></small>
 								</div>
-								<div id="ping-result"></div>
+								<div id="models-status" class="small text-muted"></div>
+								<div id="ping-result" class="mt-2"></div>
 							</div>
 						</div>
 

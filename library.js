@@ -38,6 +38,17 @@ plugin.init = async (params) => {
 		return { ok: true };
 	};
 
+	sockets['ai-moderation'].listModels = async (socket, data) => {
+		await assertAdmin(socket);
+		const force = !!(data && data.force);
+		try {
+			return await openrouter.listModels({ force });
+		} catch (err) {
+			winston.warn('[plugin/ai-moderation] listModels failed: ' + err.message);
+			throw new Error(err.message || 'Failed to fetch model catalog');
+		}
+	};
+
 	sockets['ai-moderation'].pingModel = async (socket, data) => {
 		await assertAdmin(socket);
 		const model = (data && data.model || '').trim();
