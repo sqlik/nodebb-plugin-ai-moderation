@@ -1,0 +1,23 @@
+public/lib/admin.js
+  5dfe91e1a48d718a 175
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "4fda9c66eaece8b7cb2f6957da459c4c88d0822f",
+  "prompts": {
+    "5dfe91e1a48d718a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "15087f47-3947-42d1-b197-4911850e664c",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "sqlik",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
