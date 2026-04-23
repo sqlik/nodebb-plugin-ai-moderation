@@ -18,6 +18,38 @@ Automatic forum moderation for NodeBB, powered by [OpenRouter](https://openroute
 - **Dry-run mode.** Log decisions without enforcement while you calibrate thresholds.
 - **Built on NodeBB primitives.** Decisions route into the existing `flags` queue — no parallel moderation UI to learn.
 
+## Screenshots
+
+Seven tabs in the ACP, each configurable independently.
+
+**General** — master on/off, dry-run, edit re-analysis toggle
+
+![General tab](screenshots/01-general.png)
+
+**Models** — API key status with lookup-order hint, triage/escalation picker with autocomplete from the live OpenRouter catalog (price and context length next to each option), per-model ping, threshold sliders
+
+![Models tab](screenshots/02-models.png)
+
+**Rules** — category list, forum-specific custom rules (with built-in prompt examples + a meta-prompt for generating your own), per-category action mapping, per-NodeBB-category overrides
+
+![Rules tab](screenshots/03-rules.png)
+
+**Access & Budget** — exempt roles and reputation threshold; daily/monthly USD caps, per-user analysis cap, fallback behaviour, audit log retention
+
+![Access & Budget tab](screenshots/04-access-budget.png)
+
+**Playground** — paste any text and see how the configured model would classify it, without touching real posts
+
+![Playground tab](screenshots/05-playground.png)
+
+**Audit log** — every decision the plugin has taken (in dry-run or live), filterable by action / category / user
+
+![Audit log tab](screenshots/06-audit-log.png)
+
+**Stats** — budget usage today/this-month, queue depth, decision counts per category, model call counts
+
+![Stats tab](screenshots/07-stats.png)
+
 ## Requirements
 
 - NodeBB v3.x or v4.x
